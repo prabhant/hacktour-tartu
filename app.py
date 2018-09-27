@@ -17,8 +17,9 @@ gender = df['q3Gender'].value_counts()[:3]
 countries=df['CountryNumeric2'].value_counts().to_frame()
 print(gender)
 ###########
-app = dash.Dash()
-
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 app.layout = html.Div([
     html.H1('Hacktour task: Hackerank Data'),
     html.H2('Dissagregation by gender of respondants'),
